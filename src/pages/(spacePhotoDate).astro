@@ -1,0 +1,16 @@
+---
+
+import MySiteLayout from "../layouts/MySiteLayout.astro";
+
+const spacePhoto = await fetch 
+    ('https://api.nasa.gov/planetary/apod?api_key=Vqeh1kSyMYsWDL6mNMF4Uy8Cay80bCQ1g6F0RvNC&date=$(Astro.params.spacePhotoDate)')
+    .then (res => res.json())
+
+console.log(spacePhoto);
+
+---
+
+<layout>
+    <img src={spacePhoto.url} alt=
+    {spacePhoto.title}
+</layout>

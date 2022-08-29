@@ -1,0 +1,26 @@
+---
+
+import MySiteLayout from "../layouts/MySiteLayout.astro";
+
+const spacePhoto = await fetch 
+    ('https://api.nasa.gov/planetary/apod?api_key=Vqeh1kSyMYsWDL6mNMF4Uy8Cay80bCQ1g6F0RvNC')
+    .then (res => res.json())
+
+console.log(spacePhoto);
+
+---
+<html>
+  <head>
+    <title>Inniti</title>
+    <style lang="scss">
+        img {
+            max-width:100%;
+        }
+        </style>
+  </head>
+  <body>
+    <MySiteLayout/>
+        <h1>Welcome to <span class="text-gradient" >Inniti</span> with <span class="text-gradient" ></span>Astro</h1>span></h1>
+    <img src= {spacePhoto.url} alt={spacePhoto.title} />
+  </body>
+</html>
